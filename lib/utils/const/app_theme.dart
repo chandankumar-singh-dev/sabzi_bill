@@ -19,10 +19,28 @@ class AppTheme {
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColor.background,
       appBarTheme: AppBarTheme(
+        iconTheme: IconThemeData(color: AppColor.surface),
         backgroundColor: AppColor.primaryColor,
         titleTextStyle: GoogleFonts.inter(
           fontWeight: FontWeight.bold,
           textStyle: TextStyle(color: Colors.white, fontSize: 20),
+        ),
+      ),
+      inputDecorationTheme: InputDecorationThemeData(
+        filled: true,
+        fillColor: AppColor.surface,
+        hintStyle: labelSmall,
+        enabledBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColor.inputFieldBorder, width: 0.1),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColor.inputFieldBorder, width: 0.1),
+        ),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColor.inputFieldBorder, width: 0.1),
         ),
       ),
       bottomNavigationBarTheme: BottomNavigationBarThemeData(
@@ -50,6 +68,9 @@ class AppTheme {
         ),
         labelSmall: GoogleFonts.inter(
           textStyle: TextStyle(color: AppColor.textSecondary, fontSize: 16),
+        ),
+        bodySmall: GoogleFonts.inter(
+          textStyle: TextStyle(color: Colors.black, fontSize: 16),
         ),
       ),
     );

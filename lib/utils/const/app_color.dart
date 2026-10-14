@@ -12,6 +12,7 @@ class AppColor {
 
   // Borders and dividers
   static const Color border = Color(0xFFE3EAE5);
+  static Color inputFieldBorder = Colors.grey.shade300;
 
   // Status colors
   static const Color success = Color(0xFF116149);

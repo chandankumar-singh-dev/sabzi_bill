@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:provider/provider.dart';
 import 'package:sabzi_bill/features/presentation/providers/home_screen_provider.dart';
+import 'package:sabzi_bill/features/presentation/screens/customers/customers_list.dart';
 import 'package:sabzi_bill/utils/const/app_text.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -33,7 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
         controller: pageController,
         physics: NeverScrollableScrollPhysics(),
         children: [
-          Container(color: Colors.amber),
+          CustomersListScreen(),
           Container(color: Colors.red),
           Container(color: Colors.purple),
           Container(color: Colors.green),
