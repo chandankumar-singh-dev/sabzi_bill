@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 class AppColor {
   static Color primaryColor = const Color(0xff116149);
   static Color secondaryColor = const Color(0xffDCE9E1);
-  static Color background = const Color(0xffF7F8F3);
+  static Color background = const Color(0xfff8fdf0);
+  // static Color background = const Color(0xffF7F8F3);
   static const Color surface = Color(0xFFFFFFFF);
 
   // Text
@@ -25,5 +26,4 @@ class AppColor {
 
   // Disabled controls
   static const Color disabled = Color(0xFFB8C4BD);
-
 }
