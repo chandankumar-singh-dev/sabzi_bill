@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:sabzi_bill/features/presentation/widgets/buttons/icon_with_text_button.dart';
+import 'package:sabzi_bill/features/presentation/widgets/circle_avatar_with_name.dart';
 import 'package:sabzi_bill/features/presentation/widgets/input_fields/custom_text_form_field.dart';
 import 'package:sabzi_bill/utils/const/app_color.dart';
 import 'package:sabzi_bill/utils/const/app_extension.dart';
@@ -41,11 +42,9 @@ class CustomersListScreen extends StatelessWidget {
                 itemBuilder: (context, index) => Padding(
                   padding: EdgeInsets.symmetric(vertical: 5),
                   child: ListTile(
+                    onTap: () => context.push("/customer-details"),
                     minTileHeight: 85,
-                    leading: CircleAvatar(
-                      backgroundColor: Colors.amber,
-                      radius: 32,
-                    ),
+                    leading: CircleAvatarWithNameLetter(name: "Ramesh patel",),
                     title: Text(
                       "Ramesh Patel",
                       style: context.textTheme.bodySmall?.copyWith(

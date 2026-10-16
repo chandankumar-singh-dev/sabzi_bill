@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="260" viewBox="0 0 320 260" fill="none">
+  <title>Empty customers</title>
+  <desc>A friendly empty state illustration showing a customer silhouette and a plus sign, in Sabzi Bill's green palette.</desc>
+  <ellipse cx="160" cy="226" rx="88" ry="8" fill="#DCE9E1"/>
+  <circle cx="160" cy="116" r="88" fill="#DCE9E1"/>
+  <circle cx="160" cy="116" r="70" fill="#EAF2EC"/>
+  <path d="M160 31V44M119 43L126 54M201 43L194 54" stroke="#116149" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="139" cy="91" r="19" fill="#116149"/>
+  <circle cx="185" cy="95" r="16" fill="#79A98D"/>
+  <path d="M91 170C91 140.729 110.028 121 139 121C167.972 121 187 140.729 187 170V178H91V170Z" fill="#116149"/>
+  <path d="M165 169C165 150.222 178.431 137 196 137C213.569 137 227 150.222 227 169V178H165V169Z" fill="#79A98D"/>
+  <circle cx="218" cy="171" r="30" fill="#116149" stroke="#EAF2EC" stroke-width="5"/>
+  <path d="M218 157V185M204 171H232" stroke="#FFFFFF" stroke-width="5" stroke-linecap="round"/>
+  <path d="M65 211H255" stroke="#B8CFC1" stroke-width="4" stroke-linecap="round"/>
+  <path d="M83 222H237" stroke="#DCE9E1" stroke-width="4" stroke-linecap="round"/>
+</svg>

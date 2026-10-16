@@ -6,12 +6,20 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
   final String? hintText;
   final String label;
   final int maxLines;
+  final TextEditingController? controller;
+  final FocusNode? focusNode;
+  final TextInputAction? textInputAction;
+  final void Function(String)? onFieldSubmitted;
   const CustomTextFormFieldWithLabel({
     super.key,
     this.prefixIcon,
     this.hintText,
     this.maxLines = 1,
     required this.label,
+    this.controller,
+    this.focusNode,
+    this.onFieldSubmitted,
+    this.textInputAction
   });
 
   @override
@@ -34,6 +42,10 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
             ],
           ),
           child: TextFormField(
+            textInputAction: textInputAction,
+            controller: controller,
+            focusNode: focusNode,
+            onFieldSubmitted: onFieldSubmitted,
             maxLines: maxLines,
             style: context.textTheme.bodySmall,
             onTapOutside: (event) {

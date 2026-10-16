@@ -16,6 +16,7 @@ class AppTheme {
       textStyle: TextStyle(color: AppColor.textSecondary, fontSize: 14),
     );
     return ThemeData(
+      primaryColor: AppColor.primaryColor,
       brightness: Brightness.light,
       scaffoldBackgroundColor: AppColor.background,
       appBarTheme: AppBarTheme(
@@ -60,6 +61,13 @@ class AppTheme {
             fontWeight: FontWeight.bold,
           ),
         ),
+        displayMedium: GoogleFonts.inter(
+          textStyle: TextStyle(
+            fontSize: 20,
+            color: AppColor.primaryColor,
+            fontWeight: FontWeight.bold,
+          ),
+        ),
         displaySmall: GoogleFonts.inter(
           textStyle: TextStyle(color: AppColor.primaryColor, fontSize: 16),
         ),
@@ -71,6 +79,9 @@ class AppTheme {
         ),
         bodySmall: GoogleFonts.inter(
           textStyle: TextStyle(color: Colors.black, fontSize: 16),
+        ),
+        bodyMedium: GoogleFonts.inter(
+          textStyle: TextStyle(color: Colors.black, fontSize: 18),
         ),
       ),
     );
