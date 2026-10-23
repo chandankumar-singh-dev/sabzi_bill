@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:sabzi_bill/features/presentation/providers/customer_provider.dart';
 import 'package:sabzi_bill/utils/const/app_assets_string.dart';
 import 'package:sabzi_bill/utils/const/app_color.dart';
 import 'package:sabzi_bill/utils/const/app_extension.dart';
@@ -16,7 +18,16 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    _navigateToHome();
+    _initializeApp();
+  }
+
+  Future<void> _initializeApp() async {
+    await databaseInitialzation();
+    await _navigateToHome();
+  }
+
+  Future<void> databaseInitialzation() async {
+    await context.read<CustomerProvider>().loadCustomerList();
   }
 
   Future<void> _navigateToHome() async {

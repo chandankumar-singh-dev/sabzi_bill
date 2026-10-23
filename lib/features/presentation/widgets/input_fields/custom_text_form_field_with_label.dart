@@ -10,6 +10,8 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
   final FocusNode? focusNode;
   final TextInputAction? textInputAction;
   final void Function(String)? onFieldSubmitted;
+  final String? Function(String?)? validator;
+  final TextInputType? keyboardType;
   const CustomTextFormFieldWithLabel({
     super.key,
     this.prefixIcon,
@@ -19,7 +21,9 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
     this.controller,
     this.focusNode,
     this.onFieldSubmitted,
-    this.textInputAction
+    this.textInputAction,
+    this.validator,
+    this.keyboardType
   });
 
   @override
@@ -43,6 +47,7 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
           ),
           child: TextFormField(
             textInputAction: textInputAction,
+            keyboardType: keyboardType,
             controller: controller,
             focusNode: focusNode,
             onFieldSubmitted: onFieldSubmitted,
@@ -51,6 +56,7 @@ class CustomTextFormFieldWithLabel extends StatelessWidget {
             onTapOutside: (event) {
               FocusScope.of(context).unfocus();
             },
+            validator: validator,
             decoration: InputDecoration(
               prefixIcon: prefixIcon,
               hintText: hintText,

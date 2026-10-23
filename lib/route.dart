@@ -1,4 +1,5 @@
 import 'package:go_router/go_router.dart';
+import 'package:sabzi_bill/features/model/customer/customer.dart';
 import 'package:sabzi_bill/features/presentation/screens/app_home_screen.dart';
 import 'package:sabzi_bill/features/presentation/screens/customers/add_edit_customer_screen.dart';
 import 'package:sabzi_bill/features/presentation/screens/customers/customer_details_screen.dart';
@@ -20,7 +21,12 @@ final GoRouter goRouter = GoRouter(
     GoRoute(
       path: '/customer-details',
       name: "customer_details_screen",
-      builder: (context, state) => CustomerDetailsScreen(),
+      builder: (context, state) {
+        final map = state.extra as Map<String, dynamic>;
+        return CustomerDetailsScreen(
+          customer: map["customer"],
+        );
+      },
     ),
     GoRoute(
       path: '/add_edit_customer_screen',
@@ -31,9 +37,7 @@ final GoRouter goRouter = GoRouter(
             : {};
         return AddEditCustomerScreen(
           isEditFlag: map['isEditFlag'] as bool? ?? false,
-          customerName: map['customerName'] as String?,
-          customerPhone: map['customerPhone'] as String?,
-          customerAddress: map['customerAddress'] as String?,
+          customer: map["customer"] as Customer?,
         );
       },
     ),

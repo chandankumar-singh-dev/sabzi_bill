@@ -1,18 +1,35 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:provider/provider.dart';
+import 'package:sabzi_bill/features/model/customer/customer.dart';
+import 'package:sabzi_bill/features/presentation/providers/customer_provider.dart';
 import 'package:sabzi_bill/features/presentation/widgets/buttons/icon_with_text_button.dart';
 import 'package:sabzi_bill/features/presentation/widgets/circle_avatar_with_name.dart';
 import 'package:sabzi_bill/utils/const/app_color.dart';
 import 'package:sabzi_bill/utils/const/app_extension.dart';
 
 class CustomerDetailsScreen extends StatelessWidget {
-  const CustomerDetailsScreen({super.key});
+  final Customer customer;
+  const CustomerDetailsScreen({super.key, required this.customer});
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text("Customer Details")),
+      appBar: AppBar(
+        title: Text("Customer Details"),
+        actions: [
+          IconButton(
+            onPressed: () {
+              context.read<CustomerProvider>().deleteCustomer(customer);
+              if (context.canPop()) {
+                context.pop();
+              }
+            },
+            icon: Icon(CupertinoIcons.delete),
+          ),
+        ],
+      ),
       body: Padding(
         padding: EdgeInsets.symmetric(horizontal: 16, vertical: 16),
         child: SingleChildScrollView(
@@ -33,25 +50,26 @@ class CustomerDetailsScreen extends StatelessWidget {
                 ),
                 child: Row(
                   children: [
-                    CircleAvatarWithNameLetter(
-                      name: "Chandan kumar",
-                      radius: 40,
-                    ),
+                    CircleAvatarWithNameLetter(name: customer.name, radius: 40),
                     const SizedBox(width: 10),
                     Expanded(
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        mainAxisSize: MainAxisSize.min,
                         children: [
                           Text(
-                            "Chandan kumar",
+                            customer.name,
                             style: context.textTheme.bodyMedium?.copyWith(
                               fontWeight: FontWeight.bold,
                             ),
                           ),
-                          Text(
-                            "898090090",
-                            style: context.textTheme.labelSmall,
-                          ),
+                          if (customer.phone != null &&
+                              customer.phone!.isNotEmpty)
+                            Text(
+                              customer.phone!,
+                              style: context.textTheme.labelSmall,
+                            ),
                         ],
                       ),
                     ),
@@ -59,13 +77,7 @@ class CustomerDetailsScreen extends StatelessWidget {
                     IconButton(
                       onPressed: () => context.push(
                         '/add_edit_customer_screen',
-                        extra: {
-                          "isEditFlag": true,
-                          "customerName": "Chandankumar Singh",
-                          "customerPhone": "43r23423423",
-                          "customerAddress":
-                              "kdjadisdfiw\njhdhau\ndhiahiuhasuih",
-                        },
+                        extra: {"isEditFlag": true, "customer": customer},
                       ),
                       icon: Icon(CupertinoIcons.pen),
                     ),

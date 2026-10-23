@@ -31,6 +31,12 @@ class AppTheme {
         filled: true,
         fillColor: AppColor.surface,
         hintStyle: labelSmall,
+        errorMaxLines: 1,
+        errorStyle: labelSmall.copyWith(color: AppColor.error),
+        errorBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: BorderSide(color: AppColor.error, width: 0.2),
+        ),
         enabledBorder: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
           borderSide: BorderSide(color: AppColor.inputFieldBorder, width: 0.1),
